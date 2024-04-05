@@ -8,8 +8,9 @@ docker build -t qwen-vl-chat:webdemo --platform linux/amd64 -f Dockerfile.qwende
 
 ### run
 
-```
-docker run -it --gpus device=0 -d --restart always -v /var/run/docker.sock:/var/run/docker.sock --name qwen-vl-chat -p 8000:8000 --user=20001:20001 --platform linux/amd64 qwen-vl-chat:webdemo
+```sh
+# docker run -it --gpus device=0 -d --restart always -v /var/run/docker.sock:/var/run/docker.sock --name qwen-vl-chat -p 8000:8000 --user=20001:20001 --platform linux/amd64 qwen-vl-chat:webdemo
+docker run it --name qwen-vl-chat --rm -p 8000:8000 registry.cn-hangzhou.aliyuncs.com/117503445-mirror/qwen-vl-chat
 ```
 
 ## qwen openai api

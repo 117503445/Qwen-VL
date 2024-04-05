@@ -38,7 +38,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            registry.cn-hangzhou.aliyuncs.com/117503445-mirror/qwen-vl-chat:webdemo
+            registry.cn-hangzhou.aliyuncs.com/117503445-mirror/qwen-vl-chat
           tags: |
             type=schedule
             type=ref,event=branch
