@@ -32,17 +32,17 @@ RUN mkdir -p ${workdir}/logs && chmod 777 ${workdir}/logs
 VOLUME /var/app/logs
 
 # create user 20001
-RUN useradd -r -m appuser -u 20001 -g 0
+# RUN useradd -r -m appuser -u 20001 -g 0
 
 WORKDIR ${workdir}
 # copy model
 RUN git clone https://huggingface.co/Qwen/Qwen-VL-Chat
 # COPY --chown=20001:20001 Qwen-VL-Chat ./Qwen-VL-Chat
 # copy fonts
-ADD --chown=20001:20001 https://github.com/StellarCN/scp_zh/raw/master/fonts/SimSun.ttf ./
+ADD https://github.com/StellarCN/scp_zh/raw/master/fonts/SimSun.ttf ./
 # COPY --chown=20001:20001 SimSun.ttf ./
 # copy main app
-COPY --chown=20001:20001 web_demo_mm.py ./
+COPY web_demo_mm.py ./
 
 EXPOSE 8000
 CMD ["python3", "web_demo_mm.py", "-c", "./Qwen-VL-Chat", "--server-name", "0.0.0.0", "--server-port", "8000"]
